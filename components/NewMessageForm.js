@@ -2,18 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Button, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
-export default function App() {
-
-  const onSend = (data) => {
-    setInputText('')
-  }
-
+export default function App({ onSend }) {
   const [inputText, setInputText] = useState('');
   const handleSend = () => {
     if (onSend) {
       onSend(inputText);
     }
-
+    setInputText('');
   };
   return (
     <View style={styles.container}>
